@@ -156,6 +156,8 @@ while Fim == 1:
                 Player = 0
 
         if Vencedor() is True:
+            Limpa_Tela()
+            Jogo_Tela()
             if Player == 1:
                 print("Parabéns! Jogador 1 venceu!\n")
                 Fim = int(input("JOGAR NOVAMENTE? 1 - SIM | 2 - NÃO: "))
@@ -163,8 +165,9 @@ while Fim == 1:
                     break
                 else:
                     Limpa_Tela()
+                    Jogo_Tela()
                     Jogando_Novamente()
-                    Fim = 1
+                    Player = 0
             else:
                 print("Parabéns! Jogador 2 venceu!\n")
                 Fim = int(input("JOGAR NOVAMENTE? 1 - SIM | 2 - NÃO: "))
@@ -172,8 +175,9 @@ while Fim == 1:
                     break
                 else:
                     Limpa_Tela()
+                    Jogo_Tela()
                     Jogando_Novamente()
-                    Fim = 1
+                    Player = 0
 
     else:
         print("EMPATOU")
