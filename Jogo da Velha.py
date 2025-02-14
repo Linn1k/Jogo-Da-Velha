@@ -4,6 +4,7 @@ Lista1 = ["-", "-", "-"]
 Lista2 = ["-", "-", "-"]
 Lista3 = ["-", "-", "-"]
 Player = 0
+Fim = 1
 
 
 def Mensagens_Ocupado():
@@ -117,9 +118,16 @@ def Valor_Certo(Linha, Jogador):
     return Linha
 
 
+def Jogando_Novamente():
+    for i in range(3):
+        Lista1[i] = "-"
+        Lista2[i] = "-"
+        Lista3[i] = "-"
+
+
 Limpa_Tela()
 
-while True:
+while Fim == 1:
     Jogo_Tela()
     if Empate() is False:
         if Player == 0:
@@ -150,9 +158,23 @@ while True:
         if Vencedor() is True:
             if Player == 1:
                 print("Parabéns! Jogador 1 venceu!\n")
+                Fim = int(input("JOGAR NOVAMENTE? 1 - SIM | 2 - NÃO: "))
+                if Fim == 2:
+                    break
+                else:
+                    Limpa_Tela()
+                    Jogando_Novamente()
+                    Fim = 1
             else:
                 print("Parabéns! Jogador 2 venceu!\n")
-            break
+                Fim = int(input("JOGAR NOVAMENTE? 1 - SIM | 2 - NÃO: "))
+                if Fim == 2:
+                    break
+                else:
+                    Limpa_Tela()
+                    Jogando_Novamente()
+                    Fim = 1
+
     else:
         print("EMPATOU")
         break
