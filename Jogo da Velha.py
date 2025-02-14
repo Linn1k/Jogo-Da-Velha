@@ -4,7 +4,7 @@ Lista1 = ["-", "-", "-"]
 Lista2 = ["-", "-", "-"]
 Lista3 = ["-", "-", "-"]
 Player = 0
-Fim = 1
+Fim = 0
 
 
 def Mensagens_Ocupado():
@@ -127,7 +127,7 @@ def Jogando_Novamente():
 
 Limpa_Tela()
 
-while Fim == 1:
+while Fim == 0:
     Jogo_Tela()
     if Empate() is False:
         if Player == 0:
@@ -160,20 +160,27 @@ while Fim == 1:
             Jogo_Tela()
             if Player == 1:
                 print("Parabéns! Jogador 1 venceu!\n")
-                Fim = int(input("JOGAR NOVAMENTE? 1 - SIM | 2 - NÃO: "))
-                if Fim == 2:
-                    break
-                else:
+                while Fim not in [1, 2]:
+                    Fim = int(input("JOGAR NOVAMENTE? 1 - SIM | 2 - NÃO: "))
+                    if Fim == 1:
+                        Fim = 1
+                    if Fim == 2:
+                        break
+
+                if Fim == 1:
                     Limpa_Tela()
                     Jogo_Tela()
                     Jogando_Novamente()
                     Player = 0
             else:
                 print("Parabéns! Jogador 2 venceu!\n")
-                Fim = int(input("JOGAR NOVAMENTE? 1 - SIM | 2 - NÃO: "))
+                while Fim not in [1, 2]:
+                    Fim = int(input("JOGAR NOVAMENTE? 1 - SIM | 2 - NÃO: "))
+                    if Fim == 1:
+                        Fim = 1
                 if Fim == 2:
                     break
-                else:
+                if Fim == 1:
                     Limpa_Tela()
                     Jogo_Tela()
                     Jogando_Novamente()
